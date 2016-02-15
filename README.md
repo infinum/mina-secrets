@@ -1,8 +1,9 @@
+[![Gem Version](https://badge.fury.io/rb/mina-secrets.svg)](https://badge.fury.io/rb/mina-secrets)
+
 # Mina::Secrets
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mina/secrets`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is a mina plugin for (secrets\_cli)[https://github.com/infinum/secrets_cli]
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -22,7 +23,31 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Setup
+
+You need to run at least once:
+
+    mina secrets:auth
+
+or add to your setup task:
+
+    invoke :'secrets:auth'
+
+
+Add
+
+    invoke :'secrets:pull'
+
+to your deploy task after git:pull
+
+Example:
+
+    task :deploy => :environment do
+      deploy do
+        invoke :'git:clone'
+        invoke :'secrets:pull'
+        invoke :'deploy:link_shared_paths'
+        ...
 
 ## Development
 
@@ -32,7 +57,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mina-secrets. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/infinum/mina-secrets. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License

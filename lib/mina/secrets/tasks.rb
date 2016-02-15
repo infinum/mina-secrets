@@ -13,6 +13,6 @@ namespace :secrets do
   desc 'Secrets pull'
   task pull: :environment do
     queue %(echo "-----> Secrets pull")
-    queue! %(secrets pull -e #{rails_env} #{verbose_mode? ? '-V' : ''})
+    queue! %(secrets pull -e #{rails_env} -d #{deploy_to}/#{shared_path} #{verbose_mode? ? '-V' : ''})
   end
 end

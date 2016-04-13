@@ -4,10 +4,17 @@ require 'mina/rails'
 namespace :secrets do
   set :term_mode, :pretty
 
-  desc 'secrets auth'
-  task auth: :environment do
-    queue %(echo "-----> Secrets auth")
-    queue! %(secrets auth #{verbose_mode? ? '-V' : ''})
+  desc 'secrets policies'
+  task policies: :environment do
+    queue %(echo "-----> Secrets policies")
+    queue! %(secrets policies #{verbose_mode? ? '-V' : ''})
+  end
+
+  desc 'secrets setup'
+  task setup: :environment do
+    queue %(echo "-----> Secrets setup")
+    queue! %(mkdir -p #{shared_path}/config)
+    queue! %(touch #{shared_path}/config/application.yml)
   end
 
   desc 'Secrets pull'

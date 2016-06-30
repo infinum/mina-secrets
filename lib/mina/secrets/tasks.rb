@@ -6,20 +6,20 @@ namespace :secrets do
 
   desc 'secrets policies'
   task policies: :environment do
-    queue %(echo "-----> Secrets policies")
-    queue! %(secrets policies #{verbose_mode? ? '-V' : ''})
+    comment 'Secrets policies'
+    command 'secrets policies'
   end
 
   desc 'secrets setup'
   task setup: :environment do
-    queue %(echo "-----> Secrets setup")
-    queue! %(mkdir -p #{shared_path}/config)
-    queue! %(touch #{shared_path}/config/application.yml)
+    comment 'Secrets setup'
+    command "mkdir -p #{fetch(:shared_path)}/config"
+    command "touch #{fetch(:shared_path)}/config/application.yml"
   end
 
   desc 'Secrets pull'
   task pull: :environment do
-    queue %(echo "-----> Secrets pull")
-    queue! %(secrets pull -e #{rails_env} -d #{deploy_to}/#{shared_path} #{verbose_mode? ? '-V' : ''})
+    comment 'Secrets pull'
+    command "secrets pull -e #{fetch(:rails_env)} -d #{fetch(:shared_path)}"
   end
 end

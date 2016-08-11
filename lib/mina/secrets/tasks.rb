@@ -1,7 +1,6 @@
 require 'mina/bundler'
 require 'mina/rails'
 
-set :shared_dirs, fetch(:shared_dirs, []).push('config')
 set :shared_files, fetch(:shared_files, []).push('config/application.yml')
 
 namespace :secrets do
@@ -12,13 +11,6 @@ namespace :secrets do
     comment 'Secrets policies'
     command 'secrets policies'
   end
-
-  # desc 'secrets setup'
-  # task setup: :environment do
-  #   comment 'Secrets setup'
-  #   command "mkdir -p #{fetch(:shared_path)}/config"
-  #   command "touch #{fetch(:shared_path)}/config/application.yml"
-  # end
 
   desc 'Secrets pull'
   task pull: :environment do

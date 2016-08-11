@@ -29,5 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
 
   spec.add_runtime_dependency 'secrets_cli'
-  spec.add_runtime_dependency 'mina', '1.0.0.beta1'
+  spec.add_runtime_dependency 'mina', '~> 1.0.0.beta2'
 end

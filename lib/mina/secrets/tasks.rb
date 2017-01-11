@@ -15,6 +15,6 @@ namespace :secrets do
   desc 'Secrets pull'
   task pull: :environment do
     comment 'Secrets pull'
-    command "secrets pull -e #{fetch(:rails_env)} -d #{fetch(:shared_path)} -y"
+    command "bundle exec secrets pull -e #{fetch(:rails_env)} -d #{fetch(:shared_path)} -y"
   end
 end

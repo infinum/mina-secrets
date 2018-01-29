@@ -2,7 +2,7 @@
 
 # Mina::Secrets
 
-This is a mina plugin for (secrets\_cli)[https://github.com/infinum/secrets_cli]
+This is a mina plugin for [secrets\_cli](https://github.com/infinum/secrets_cli)
 
 
 ## Installation

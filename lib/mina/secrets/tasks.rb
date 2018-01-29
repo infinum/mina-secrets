@@ -7,13 +7,13 @@ namespace :secrets do
   set :term_mode, :pretty
 
   desc 'secrets policies'
-  task policies: :environment do
+  task :policies do
     comment 'Secrets policies'
     command 'secrets policies'
   end
 
   desc 'Secrets pull'
-  task pull: :environment do
+  task :pull do
     comment 'Secrets pull'
     command "secrets pull -e #{fetch(:rails_env)} -d #{fetch(:shared_path)} -y"
   end

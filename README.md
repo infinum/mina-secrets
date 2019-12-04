@@ -53,7 +53,7 @@ task :deploy => :environment do
     ...
 ```
 
-Set secrets environment with `secrets_env` attribute.
+Set secrets environment with `secrets_env` attribute. If `secrets_env` is not set, it will use `rails_env`
 Example:
 
 ```ruby

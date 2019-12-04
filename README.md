@@ -38,16 +38,33 @@ Add
 
     invoke :'secrets:pull'
 
-to your deploy task after git:pull
+to your deploy task after bundle:install
 
 Example:
 
-    task :deploy => :environment do
-      deploy do
-        invoke :'git:clone'
-        invoke :'secrets:pull'
-        invoke :'deploy:link_shared_paths'
-        ...
+```ruby
+task :deploy => :environment do
+  deploy do
+    invoke :'git:clone'
+    invoke :'deploy:link_shared_paths'
+    invoke :'bundle:install'
+    invoke :'secrets:pull'
+    
+    ...
+```
+
+Set secrets environment with `secrets_env` attribute.
+Example:
+
+```ruby
+task :production do
+  set :domain, 'production.com'
+  set :deploy_to, '/home/deploy/www/...'
+  set :rails_env, 'production'
+  set :secrets_env, 'production'
+  set :branch, 'master'
+end
+```
 
 ## Development
 

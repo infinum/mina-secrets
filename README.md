@@ -25,15 +25,6 @@ Or install it yourself as:
 
 ### Setup
 
-You need to run at least once:
-
-    mina secrets:auth
-
-or add to your setup task:
-
-    invoke :'secrets:auth'
-
-
 Add
 
     invoke :'secrets:pull'
@@ -49,7 +40,7 @@ task :deploy => :environment do
     invoke :'deploy:link_shared_paths'
     invoke :'bundle:install'
     invoke :'secrets:pull'
-    
+
     ...
 ```
 
@@ -80,4 +71,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/infinu
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
